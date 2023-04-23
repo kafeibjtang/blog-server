@@ -7,8 +7,10 @@
 使用前可以联系我询问，或者自行查阅源码并修改哦
 
 服务端和博客都已同步至Gitee
-Gitee博客地址：https://gitee.com/Laoxiaoz/vue-bolg/tree/master/
 
+
+Gitee博客地址：https://gitee.com/Laoxiaoz/vue-bolg/tree/master/
+Gitee博客服务端地址：https://gitee.com/Laoxiaoz/blog-server/tree/master/
 
 
 github个人博客地址：https://github.com/kafeibjtang/vue-bolg/tree/master
