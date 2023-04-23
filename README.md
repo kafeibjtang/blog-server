@@ -9,8 +9,9 @@
 服务端和博客都已同步至Gitee
 
 
-Gitee博客地址：https://gitee.com/Laoxiaoz/vue-bolg/tree/master/
-Gitee博客服务端地址：https://gitee.com/Laoxiaoz/blog-server/tree/master/
+Gitee博客地址：https://gitee.com/Laoxiaoz/vue-bolg/tree/master
+Gitee博客服务端地址：https://gitee.com/Laoxiaoz/blog-server/tree/master
 
 
 github个人博客地址：https://github.com/kafeibjtang/vue-bolg/tree/master
+github服务端地址：https://github.com/kafeibjtang/blog-server/edit/master
