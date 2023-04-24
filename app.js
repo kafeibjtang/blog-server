@@ -13,6 +13,8 @@ const { getPubliKeySync } = require('./core/rsa')
 
 const app = express();
 
+require('./socket')
+
 app.use(cors({
   "origin": true, //true 设置为 req.origin.url
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE", //容许跨域的请求方式
