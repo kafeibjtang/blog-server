@@ -1,6 +1,8 @@
 # blog-server
 这是个人博客的服务端，有需要的话请自行拉取
 
+主要使用的技术栈：NodeJS，Express框架，MongoDB数据库，Mongoose
+
 http协议端口号是3000
 
 WebSocket端口号是8888
