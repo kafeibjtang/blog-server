@@ -49,6 +49,7 @@ io.on('connection', (socket) => {
     let uid = socket.uid
 
     io.sockets.emit('logout', users[uid]?.nickname)
+    delete users[uid]
   })
   //客户端断开连接
   socket.on('disconnect', () => {
