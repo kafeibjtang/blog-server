@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const assert = require('http-assert');
-const multer = require("Multer")
+const multer = require("multer")
 const { uploadPath, uploadURL, maxFileSize } = require('../config')
 const path = require('path')
 const fs = require('fs');
