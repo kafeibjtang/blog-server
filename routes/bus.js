@@ -19,7 +19,6 @@ const RESOURCE_POST_MAP = require('../plugins/RESOURCE_POST_MAP')
 
 //创建资源
 router.post('/', async (req, res, next) => {
-
   try {
     let modelName = req.Model.modelName
     let body = req.body
@@ -91,6 +90,19 @@ router.delete('/:id', async (req, res) => {
 //查询资源列表
 router.get('/', async (req, res, next) => {
   let modelName = req.Model.modelName
+  if (modelName === "Column") {
+    req.Model.aggregate([{ $group: { _id: null, modelName: { $push: "$name" }, id: { $push: "$_id" } } }], function (err, data) {
+      let listArr = []
+      for (let i = 0, len = data[0]["id"].length; i < len; i++) {
+        listArr.push({ id: data[0]["id"][i], name: data[0]["modelName"][i] })
+      }
+      res.send(200, {
+        message: "ok",
+        data: listArr
+      })
+    })
+    return false
+  }
   let { options = {}, page = 1, size = 100, query = {}, dis = 8, populate = {} } = req.query
   query = qs.parse(query)
   if (query.q) {
@@ -107,14 +119,13 @@ router.get('/', async (req, res, next) => {
     if (modelName in POPULATE_MAP) {
       populate = POPULATE_MAP[modelName]
     }
-    let result = await pagination({ model: req.Model, query, options, populate, size, page, dis })
 
+    let result = await pagination({ model: req.Model, query, options, populate, size, page, dis })
     res.send(200, {
       message: "ok",
       data: result
     })
   } catch (err) {
-    console.log(err)
     next(createError(422, "获取失败"))
   }
 })

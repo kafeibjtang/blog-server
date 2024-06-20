@@ -1,5 +1,5 @@
 const createHttpError = require('http-errors')
-const {classify} = require('inflection')
+const { classify } = require('inflection')
 
 module.exports = options => {
   return async (req, res, next) => {
@@ -8,7 +8,7 @@ module.exports = options => {
       req.Model = require(`../models/${modelName}`)
       next()
     } catch (error) {
-     next( createHttpError(404))
+      next(createHttpError(404))
     }
   }
 }

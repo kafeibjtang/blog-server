@@ -17,13 +17,12 @@ const schema = new mongoose.Schema({
       } catch (error) {
         return val
       }
-    },
-    required: true
+    }
   },
   //文章内容
   content: {
-    type: String, 
-    set (val) {
+    type: String,
+    set(val) {
       try {
         val = decodeURIComponent(`${val}`).replace(/\"/g, "\'")
         return val
@@ -33,24 +32,24 @@ const schema = new mongoose.Schema({
     },
     required: true,
   },
-    //文章详情
-    detailed : {
-      type: String, 
-      set (val) {
-        try {
-          val = decodeURIComponent(`${val}`).replace(/\"/g, "\'")
-          return val
-        } catch (err) {
-          return val
-        }
-      },
-      required: true,
+  //文章详情
+  detailed: {
+    type: String,
+    set(val) {
+      try {
+        val = decodeURIComponent(`${val}`).replace(/\"/g, "\'")
+        return val
+      } catch (err) {
+        return val
+      }
     },
+    required: true,
+  },
   //更新日期
   date: {
     type: mongoose.SchemaTypes.Date,
     default: Date.now,
-    get (val) {
+    get(val) {
       return formatDate(new Date(val), 'yyyy年MM月dd日 hh:mm:ss')
     }
   },
@@ -71,7 +70,7 @@ const schema = new mongoose.Schema({
   },
   //作者
   writer: {
-    type: mongoose.SchemaTypes.ObjectId,   
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "User",
     required: true
   },
@@ -90,7 +89,7 @@ const schema = new mongoose.Schema({
   },
   like_users: [
     {
-      type:mongoose.SchemaTypes.ObjectId
+      type: mongoose.SchemaTypes.ObjectId
     }
   ]
 })
