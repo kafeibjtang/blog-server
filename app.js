@@ -13,7 +13,7 @@ const { getPubliKeySync } = require('./core/rsa')
 
 const app = express();
 
-require('./socket')
+// require('./socket')
 
 app.use(cors({
   "origin": true, //true 设置为 req.origin.url
